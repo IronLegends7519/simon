@@ -4,9 +4,15 @@ const blue = document.querySelector(".blue")
 const yellow = document.querySelector(".yellow")
 const jouer = document.querySelector("#jouer")
 let random;
+let c=0;
+let a;
+let b=0;
+let e=0;
+let r=3;
+let p = 0;
 const T = [];
-let index = 10; 
-
+let index = 0; 
+function rejouer(){
 function fRed(){
     const redI = setInterval(()=>{
       red.style.backgroundColor = 'red'
@@ -51,16 +57,14 @@ function fRed(){
           },100)
         }
 
-        let a;
-        let b=0;
-        let c=0;
+
 red.addEventListener('click',()=>{
   a = T.indexOf(0,c)
   console.log(a)
   console.log(b)
   console.log(c)
   if(a===b){
-    fRed
+    fRed()
     b++
     c++
   }
@@ -75,7 +79,7 @@ green.addEventListener('click',()=>{
   console.log(b)
   console.log(c)
   if(a===b){
-    fGreen
+    fGreen()
     b++
     c++
   }
@@ -89,7 +93,7 @@ blue.addEventListener('click',()=>{
   console.log(b)
   console.log(c)
   if(a===b){
-    fBlue
+    fBlue()
     b++
     c++
   }
@@ -104,7 +108,7 @@ yellow.addEventListener('click',()=>{
   console.log(b)
   console.log(c)
   if(a===b){
-    fYellow
+    fYellow()
     b++
     c++
   }
@@ -112,26 +116,40 @@ yellow.addEventListener('click',()=>{
     alert("mauvais boutton")
   }
 })
+Finterval()
+function Finterval(){
+  const interval = setInterval(()=>{
+    
+  random = Math.floor(Math.random()*4)
+  T.push(random)
+  if(e===c){
+    if(r===10){
+      p=10
+    }
+    r++
+    p=-1;
+  }
+  if(random===0){
+  fRed()
+  }
+  else if(random===1){
+    fGreen()
+  }
+  else if(random===2){
+    fBlue()
+  }
+  else if(random===3){
+    fYellow()
+  }
+  index++
+  console.log(T)
+  console.log(e)
+  e++
+  if(e>=r){
+  clearInterval(interval)}
+  },1000)}}
 
-
-const interval = setInterval(()=>{
-  if(index<T.length){
-    clearInterval(interval)
+while(p<1){
+  rejouer()
+p++
 }
-random = Math.floor(Math.random()*4)
-T.push(random)
-if(random===0){
-fRed()
-}
-else if(random===1){
-  fGreen()
-}
-else if(random===2){
-  fBlue()
-}
-else if(random===3){
-  fYellow()
-}
-index--
-console.log(T)
-},1000)
