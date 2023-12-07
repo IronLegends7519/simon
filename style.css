@@ -1,0 +1,17 @@
+.red{
+  background-color: rgb(254, 185, 185);
+}
+.green{
+  background-color: rgb(171, 240, 171);
+}
+.blue{
+  background-color: rgb(165, 165, 248);
+}
+.yellow{
+  background-color: rgb(249, 249, 153);
+}
+
+div{
+  width:150px ;
+  height: 150px;
+}
